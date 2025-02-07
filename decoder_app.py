@@ -6,7 +6,6 @@ from kivy.graphics.texture import Texture
 
 import matplotlib.pyplot as plt
 
-cm = plt.get_cmap("ocean_r")
 
 
 import torch
@@ -71,7 +70,10 @@ class Decoder(App):
         
     
     def build(self):
+        
 
+        MAX = 1000
+        MIN = -1000
         
         root = BoxLayout(orientation="horizontal")
         control = BoxLayout(orientation="vertical")
@@ -79,10 +81,10 @@ class Decoder(App):
         self.image = Image(size_hint=(1, 1), allow_stretch=True, keep_ratio=False)
 
         self.auto = ConvAutoencoder()
-        self.auto.load_state_dict(torch.load("autoencoder_2140", weights_only=False))
+        self.auto.load_state_dict(torch.load("model/autoencoder_2140", weights_only=False))
 
 
-        sliders = [ Slider(min=0, max=255, value=random.randint(0, 255)) for _ in range(slider_count) ]
+        sliders = [ Slider(min=MIN, max=MAX, value=random.randint(MIN, MAX)) for _ in range(slider_count) ]
         self.values = [ 0 ] * 45
         for i, s in enumerate(sliders):
             control.add_widget(s)
