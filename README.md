@@ -22,7 +22,7 @@ $ python kivy_test.py
 - Probably Requires more channels per image.
 
 
-[Training Dashboard](training_conv_autoenc.png)
+![Training Dashboard](training_conv_autoenc.png)
 
 
 # Roadmap
