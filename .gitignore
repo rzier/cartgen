@@ -2,3 +2,5 @@
 pat
 20k-album-covers-within-20-genres.zip
 dataset
+pca_model
+scaler_model
